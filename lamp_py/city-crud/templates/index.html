@@ -1,0 +1,15 @@
+<h1>都市管理メニュー</h1>
+<a href="/add">新規追加</a>
+<table border="1">
+    <tr><th>コード</th><th>名前</th><th>操作</th></tr>
+    {% for city in cities %}
+    <tr>
+        <td>{{ city.citycd }}</td>
+        <td>{{ city.name }}</td>
+        <td>
+            <a href="/edit/{{ city.citycd }}">変更</a>
+            <a href="/delete/{{ city.citycd }}" onclick="return confirm('「{{ city.name }}」を削除します。この操作は取り消せません。よろしいですか？');">削除</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

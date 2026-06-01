@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ '都市情報の編集' if city else '都市情報の追加' }}</title>
+</head>
+<body>
+    <h1>{{ '都市情報の編集' if city else '都市情報の追加' }}</h1>
+    <form method="POST">
+        <div>
+            <label>都市コード (6桁): </label>
+            <input type="text" name="citycd" value="{{ city.citycd if city else '' }}" {{ 'readonly' if city else 'required' }}>
+        </div>
+        <div>
+            <label>名称: </label>
+            <input type="text" name="name" value="{{ city.name if city else '' }}">
+        </div>
+        <div>
+            <label>カナ: </label>
+            <input type="text" name="kana" value="{{ city.kana if city else '' }}">
+        </div>
+        <div>
+            <label>郵便番号: </label>
+            <input type="text" name="postno" value="{{ city.postno if city else '' }}">
+        </div>
+        <div>
+            <label>住所: </label>
+            <input type="text" name="address" value="{{ city.address if city else '' }}">
+        </div>
+        <div>
+            <label>電話番号: </label>
+            <input type="text" name="telno" value="{{ city.telno if city else '' }}">
+        </div>
+        <button type="submit">保存する</button>
+        <a href="/">キャンセル</a>
+    </form>
+</body>
+</html>
+
